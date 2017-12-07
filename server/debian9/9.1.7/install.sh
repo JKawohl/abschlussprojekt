@@ -7,7 +7,7 @@ apt install -y apache2 mariadb-server libapache2-mod-php7.0 \
 service apache2 start 
 wget -nv https://download.owncloud.org/download/repositories/9.1/Debian_8.0/Release.key -O Release.key
 apt-key add - < Release.key
-echo 'deb http://download.owncloud.org/download/repositories/9.1/Debian_9.0/ /' > /etc/apt/sources.list.d/owncloud.list
+echo 'deb http://download.owncloud.org/download/repositories/9.1/Debian_8.0/ /' > /etc/apt/sources.list.d/owncloud.list
 apt update 
 apt-get install -y owncloud-files
 #Script is written to be able to be ran after iterations. // Idempotenz  

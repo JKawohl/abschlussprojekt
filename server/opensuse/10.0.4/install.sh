@@ -38,3 +38,4 @@ mysql -u root -e "create user 'ownclouduser'@localhost identified by 'admin'"
 mysql -u root -e "GRANT ALL PRIVILEGES ON owncloud. * TO 'ownclouduser'@'localhost'"
 sudo -u wwwrun php /srv/www/htdocs/owncloud/occ maintenance:install --database "mysql" --database-name "owncloud" --database-user "ownclouduser" --database-pass "admin" --admin-user "admin" --admin-pass "admin"
 lynx --dump localhost/owncloud
+lynx --dump localhost/owncloud | grep "Username or email" >> /logs/install.log
