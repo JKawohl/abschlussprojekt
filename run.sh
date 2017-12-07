@@ -6,8 +6,8 @@ logfile=/logs/install.log
 
 #Server
 #ubuntu16.04
-docker run -ti -v $(pwd)/server/ubuntu16.04/latestproduction/install.sh:/install.sh -v $(pwd)/logs/:/logs  ubuntu:16.04 sh -s -c install.sh
-docker run -ti -v $(pwd)/server/ubuntu16.04/latest9.1/install.sh:/install.sh -v $(pwd)/logs/:/logs  ubuntu:16.04 sh -s -c install.sh
+docker run -ti -v $(pwd)/server/ubuntu16.04/latestproduction/install.sh:/install.sh -v $(pwd)/logs/:/logs  ubuntu:16.04 sh install.sh
+docker run -ti -v $(pwd)/server/ubuntu16.04/latest9.1/install.sh:/install.sh -v $(pwd)/logs/:/logs  ubuntu:16.04 sh install.sh
 #debian9
 docker run -ti -v $(pwd)/server/debian9/latestproduction/install.sh:/install.sh -v $(pwd)/logs/:/logs  debian:9 sh install.sh
 docker run -ti -v $(pwd)/server/debian9/latest9.1/install.sh:/install.sh -v $(pwd)/logs/:/logs  debian:9 sh install.sh
