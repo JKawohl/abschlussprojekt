@@ -20,4 +20,6 @@ docker run -ti -v $(pwd)/desktop/centos7/production/install.sh:/install.sh -v $(
 docker run -ti -p 80:80 -v $(pwd)/debian9:/debian9 debian:9
 docker run -ti -p 80:80 -v $(pwd)/ubuntu16.04:/ubuntu16.04 ubuntu:16.04
 docker run -ti -p 80:80 -v $(pwd)/install.sh:/install.sh centos:7 /bin/bash
+
 lynx --dump localhost/owncloud | grep 
+owncloudcmd --version | grep -q 2.3.4 && echo "Success: version 2.3.4 seen "

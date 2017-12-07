@@ -3,7 +3,7 @@ rpm --import https://download.owncloud.org/download/repositories/9.1/openSUSE_Le
 zypper addrepo http://download.owncloud.org/download/repositories/9.1/openSUSE_Leap_42.3/ce:9.1.repo
 zypper addrepo --no-gpgcheck http://download.opensuse.org/repositories/server:php:extensions:php7/openSUSE_Leap_42.3/server:php:extensions:php7.repo
 zypper refresh
-zypper install -y mysql-community-server perl hostname curl apache2 php7 apache2-mod_php7 php7-gd php7-json php7-mysql php7-curl php7-intl php7-mcrypt php7-zip php7-xmlreader php7-posix php7-xmlwriter php7-mbstring php7-iconv php7-zlib php7-ctype php7-imagick vim perl sudo lynx glibc-locale php7-pcntl
+zypper install -y mysql-community-server perl hostname curl jq apache2 php7 apache2-mod_php7 php7-gd php7-json php7-mysql php7-curl php7-intl php7-mcrypt php7-zip php7-xmlreader php7-posix php7-xmlwriter php7-mbstring php7-iconv php7-zlib php7-ctype php7-imagick vim perl sudo lynx glibc-locale php7-pcntl
 zypper install -y owncloud-files
 
 mysql_install_db
