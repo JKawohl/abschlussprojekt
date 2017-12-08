@@ -4,7 +4,7 @@ yum install -y sudo
 yum install -y  epel-release
 yum -y install yum-utils
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-yum install  -y curl  sudo 	wget mariadb-server mariadb mariadb-server php70w php70w-dom php70w-mbstring php70w-gd php70w-pdo php70w-json php70w-xml php70w-zip php70w-curl php70w-mcrypt php70w-pear php70w-mysql setroubleshoot-server \
+yum install  -y curl  sudo 	wget mariadb-server mariadb mariadb-server php70w php70w-dom php70w-mbstring php70w-gd php70w-pdo php70w-json php70w-xml php70w-zip php70w-curl php70w-mcrypt php70w-pear php70w-mysql setroubleshoot-server lynx jq \
 yum install httpd 
     
     #</dev/null
@@ -50,3 +50,6 @@ mysql -u root -e "create user 'ownclouduser'@localhost identified by 'admin'"
 mysql -u root -e "GRANT ALL PRIVILEGES ON owncloud. * TO 'ownclouduser'@'localhost'"
 
 sudo -u apache php /var/www/html/owncloud/occ maintenance:install --database "mysql" --database-name "owncloud" --database-user "ownclouduser" --database-pass "admin" --admin-user "admin" --admin-pass "admin"
+. /etc/os-release
+
+(echo "SUCCESS:$(lynx --dump localhost/owncloud/status.php| jq -r .versionstring ) installed! System $PRETTY_NAME" || echo "FAIL: Installation failed! System $PRETTY_NAME") >> /logs/server.install.log 2>&1   

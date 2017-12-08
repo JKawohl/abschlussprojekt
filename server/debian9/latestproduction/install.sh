@@ -3,7 +3,7 @@ apt update
 apt install -y apache2 mariadb-server libapache2-mod-php7.0 \
     php7.0-gd php7.0-json php7.0-mysql php7.0-curl \
     php7.0-intl php7.0-mcrypt php-imagick \
-    php7.0-zip php7.0-xml php7.0-mbstring wget vim sudo gnupg2 jq </dev/null
+    php7.0-zip php7.0-xml php7.0-mbstring wget vim sudo gnupg2 jq lynx </dev/null
 service apache2 start 
 wget -nv https://download.owncloud.org/download/repositories/production/Debian_9.0/Release.key -O Release.key
 apt-key add - < Release.key
@@ -37,3 +37,6 @@ mysql -u root -e "create database owncloud"
 mysql -u root -e "create user 'ownclouduser'@localhost identified by 'admin'"
 mysql -u root -e "GRANT ALL PRIVILEGES ON owncloud. * TO 'ownclouduser'@'localhost'"
 sudo -u www-data php /var/www/owncloud/occ maintenance:install --database "mysql" --database-name "owncloud" --database-user "ownclouduser" --database-pass "admin" --admin-user "admin" --admin-pass "admin"
+. /etc/os-release
+
+(echo "SUCCESS:$(lynx --dump localhost/owncloud/status.php| jq -r .versionstring ) installed! System $PRETTY_NAME" || echo "FAIL: Installation failed! System $PRETTY_NAME") >> /logs/server.install.log 2>&1  

@@ -51,5 +51,4 @@ sudo -u www-data php /var/www/owncloud/occ maintenance:install --database "mysql
 
 . /etc/os-release
 
-(lynx --dump localhost/owncloud/status.php| jq -r .versionstring && echo "SUCCESS:$(lynx --dump localhost/owncloud/status.php| jq -r .versionstring ) installed! System $PRETTY_NAME" || echo "FAIL: Installation failed! System $PRETTY_NAME") >> /logs/server.install.log 2>&1 
-echo -n "Your test ran on " >> /logs/server.install.log;  
+(echo "SUCCESS:$(lynx --dump localhost/owncloud/status.php| jq -r .versionstring ) installed! System $PRETTY_NAME" || echo "FAIL: Installation failed! System $PRETTY_NAME") >> /logs/server.install.log 2>&1 
