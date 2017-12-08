@@ -1,8 +1,8 @@
 #! /bin/bash
 # call all install.sh scripts
 # Expose Date
-echo "$(date)" >> $(pwd)/logs/server.install.log
-echo "$(date)" >> $(pwd)/logs/desktop.install.log
+echo "Server Test Run: $(date)" >> $(pwd)/logs/server.install.log
+echo "Client Test Run: $(date)" >> $(pwd)/logs/desktop.install.log
 
 #Server
 #ubuntu16.04
