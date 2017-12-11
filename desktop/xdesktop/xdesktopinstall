@@ -1,0 +1,8 @@
+Requires XQuartz for Mac and so on .....
+
+#Execute on Host
+
+XSOCK=/tmp/.X11-unix
+XAUTH=/tmp/.docker.xauth
+xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
+docker run -ti -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH $(pwd)/desktop/ubuntu16.04/testing/install.sh:/install.sh -v $(pwd)/logs/:/logs ubuntu:16.04 sh -c "install.sh; export DISPLAY=:0.0; owncloud"
